@@ -53,9 +53,10 @@ const Preview = () => {
             <div className="flex justify-end">
               <h2
                 className="shadow-xl bg-white rounded px-2 text-red-600 cursor-pointer"
-                onClick={() =>
-                  setContentType({ ...contentType, heading: false })
-                }
+                onClick={() => {
+                  setHeading({ ...heading, text: "" });
+                  setContentType({ ...contentType, heading: false });
+                }}
               >
                 X
               </h2>
@@ -152,9 +153,10 @@ const Preview = () => {
             <div className="flex justify-end">
               <h2
                 className="shadow-xl bg-white rounded px-2 text-red-600 cursor-pointer"
-                onClick={() =>
-                  setContentType({ ...contentType, description: false })
-                }
+                onClick={() => {
+                  setDesc("");
+                  setContentType({ ...contentType, description: false });
+                }}
               >
                 X
               </h2>
@@ -206,8 +208,13 @@ const Preview = () => {
         </div>
       </div>
       <div className="col-span-6 border border-dashed border-purple-700 rounded h-fit">
+      <div className="flex justify-center my-5">
+          <div className="shadow-lg w-2/4 p-5 rounded">
+            <h2 className="font-bold text-center">Preview</h2>
+          </div>
+        </div>
         {/* left side element */}
-        <div className="m-5" id="capture">
+        <div className="m-5 pb-5 h-full" id="capture" >
           <div className="">
             <h2
               className="font-bold text-[40px]"
@@ -231,9 +238,10 @@ const Preview = () => {
               </div>
             )}
           </div>
-          <div className="my-3">
+          <div className="mb-3">
             <p className="text-[20px]">{desc}</p>
           </div>
+          <div className="mt-5"></div>
         </div>
         <div className="m-5">
           <Button onClick={handleDownload}>Download</Button>
